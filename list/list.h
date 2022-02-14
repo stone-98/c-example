@@ -3,7 +3,7 @@
 // Created by stone on 2022/2/9.
 //
 
-#ifndef C_EXAMPLE_LIST_H
+#ifndef C_EXAMPLE_LINKLIST_H
 #define C_EXAMPLE_LIST_H
 
 #define DATE_SIZE 1024
@@ -36,4 +36,4 @@ int destroy(list *);
 
 int list_union(list *, list *);
 
-#endif //C_EXAMPLE_LIST_H
+#endif //C_EXAMPLE_LINKLIST_H
