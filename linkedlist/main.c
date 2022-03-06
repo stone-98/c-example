@@ -21,5 +21,13 @@ int main() {
         if (!linked_list_order_insert(list, &arr[i])) exit(1);
     }
     linked_list_show(list);
+    linked_list_delete(list, &arr[0]);
+    printf("Prints after deleting element:\n");
+    linked_list_show(list);
+    int delete_value = 55;
+    linked_list_delete_at(list, 1);
+    printf("Prints after removing the specified subscript element:%d\n", delete_value);
+    linked_list_show(list);
+    linked_list_destroy(list);
     exit(0);
 }

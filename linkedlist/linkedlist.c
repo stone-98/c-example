@@ -9,7 +9,7 @@
 
 linked_list_node *linked_list_create() {
     linked_list_node *node;
-    node = malloc(sizeof *node);
+    node = malloc(sizeof(node));
     // 创建失败，则返回空
     if (node == NULL) {
         return NULL;
@@ -76,12 +76,39 @@ int linked_list_order_insert(linked_list_node *node, datatype *data) {
     return 1;
 }
 
-int linked_list_delete_at(linked_list_node *node, int index, datatype *data) {
-
+int linked_list_delete_at(linked_list_node *node, int index) {
+    // 如果链表为空，直接返回
+    if (node == NULL) return 0;
+    int i = 1;
+    linked_list_node *pre_node = node;
+    // 找到指定下标的元素
+    while (i < index && pre_node->next != NULL) {
+        pre_node = pre_node->next;
+    }
+    if (pre_node->next == NULL) return 0;
+    // 删除
+    linked_list_node *delete_target = pre_node->next;
+    pre_node->next = delete_target->next;
+    free(delete_target);
+    delete_target = NULL;
+    return 1;
 }
 
 int linked_list_delete(linked_list_node *node, datatype *data) {
-
+    if (node == NULL) return 0;
+    // 待删除节点的前置节点
+    linked_list_node *pre_node = node;
+    // 找到指定数据的节点
+    while (pre_node->next && pre_node->next->data != *data) {
+        pre_node = pre_node->next;
+    }
+    if (pre_node->next == NULL) return 0;
+    // 删除节点
+    linked_list_node *delete_target = pre_node->next;
+    pre_node->next = delete_target->next;
+    delete_target->next = NULL;
+    free(delete_target);
+    return 1;
 }
 
 bool linked_list_is_empty(linked_list_node *node) {
@@ -106,5 +133,6 @@ void linked_list_show(linked_list_node *node) {
 }
 
 void linked_list_destroy(linked_list_node *node) {
-
+    free(node);
+    node = NULL;
 }

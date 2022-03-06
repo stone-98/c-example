@@ -38,8 +38,15 @@ int linked_list_insert_at(linked_list_node *, int, datatype *);
  */
 int linked_list_order_insert(linked_list_node *, datatype *);
 
-int linked_list_delete_at(linked_list_node *, int, datatype *);
+/**
+ * 删除指定下标元素
+ */
+int linked_list_delete_at(linked_list_node *, int);
 
+/**
+ * 删除指定元素节点
+ * @return
+ */
 int linked_list_delete(linked_list_node *, datatype *);
 
 /**
@@ -55,6 +62,9 @@ _Bool linked_list_is_empty(linked_list_node *);
  */
 void linked_list_show(linked_list_node *);
 
+/**
+ * 销毁元素
+ */
 void linked_list_destroy(linked_list_node *);
 
 #endif //C_EXAMPLE_LINKEDLIST_H
