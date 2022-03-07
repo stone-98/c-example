@@ -8,7 +8,7 @@
 typedef int datatype;
 
 /**
- * 单向链表的实现
+ * 带头结点的单向不循环链表的实现
  * 第一个节点作为头节点不用来存储数据！
  * 数据结构：(节点)data:null,next->（节点）data:1,next->（节点）data:2,next:null
  */
